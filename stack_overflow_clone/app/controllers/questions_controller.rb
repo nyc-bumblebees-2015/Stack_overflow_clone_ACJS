@@ -16,12 +16,10 @@ class QuestionsController < ApplicationController
     question = Question.new(question_params)
     question.user_id = 1
     tags = params[:tags].split(',')
-    p "**************"
-    tags.each do |tag|
-      question.tags << Tag.create(name: tag)
-    end
-    p "**************"
     if question.save
+      tags.each do |tag|
+        question.tags << Tag.create(name: tag)
+      end
       redirect_to root_path
     else
       redirect_to "http://www.google.com"
