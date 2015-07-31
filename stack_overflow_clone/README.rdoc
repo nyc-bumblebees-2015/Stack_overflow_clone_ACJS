@@ -1,28 +1,18 @@
-== README
+#Team Members:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Alina Jahnes
+Christine Schatz
+Jonathan Chung
+Sihong Huang
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+#User Stories:
+As a user I can ask a question
+As a user I can answer a question
+As a user I can comment on a question or answer
+As a user I can tag a question
+As a user I can sign up and log in
+As a user I can see the home page with a list of questions
+As a user I have a profile page
+As a user I can vote on questions, answers, comments
+As a user I can see when I and other users last updated/created questions, answers, comments
+As a guest user I have access to everything except asking a question, answering a question, and commenting
