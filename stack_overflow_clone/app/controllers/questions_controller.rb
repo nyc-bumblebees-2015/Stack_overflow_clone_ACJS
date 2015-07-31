@@ -15,9 +15,11 @@ class QuestionsController < ApplicationController
   def create
     question = Question.new(question_params)
     question.user_id = 1
-    tag = params[:tag]
+    tags = params[:tags].split(',')
     p "**************"
-    p tag
+    tags.each do |tag|
+      question.tags << Tag.create(name: tag)
+    end
     p "**************"
     if question.save
       redirect_to root_path
