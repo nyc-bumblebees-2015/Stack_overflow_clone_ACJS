@@ -31,7 +31,7 @@ answers = [
 comments = [
 	{
 	 commentable_id: 1,
-	 commentable_type: "answer",
+	 commentable_type: "Answer",
 	 body: "i am the worst pokemon master ever",
 	 user_id: 2}
 ]
@@ -49,7 +49,7 @@ votes = [
 	{value: 1,
 	 user_id: 1,
 	 voteable_id: 1,
-	 voteable_type: "answer"}
+	 voteable_type: "Answer"}
 ]
 
 users.each do |user|
