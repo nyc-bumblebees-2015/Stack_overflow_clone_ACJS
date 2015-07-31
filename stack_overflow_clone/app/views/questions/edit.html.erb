@@ -10,12 +10,11 @@
   </div>
   <div>
     <%= label_tag :tags %>
-    <%= text_field_tag :tags %>
+    <%= text_field_tag :tags, @question.tags_as_string %>
   </div>
    <div>
     <%= f.submit 'Submit' %>
   </div>
   <% end %>
 </div>
-
 

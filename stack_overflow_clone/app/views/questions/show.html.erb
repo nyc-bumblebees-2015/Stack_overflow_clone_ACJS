@@ -8,6 +8,10 @@
     <p class='count-title'> votes </p>
   </div>
   <div class='question-body'> <%= @question.body %> </div>
+  <div>
+    <%= button_to 'Edit', edit_question_path(@question), method: :get %>
+    <%= button_to 'Delete Question', question_path(@question), method: :delete %>
+  </div>
   <% @question.tags.each do |tag| %>
     <div class='tags'>
       <%= button_to tag.name, tag_path(tag), method: :get %>

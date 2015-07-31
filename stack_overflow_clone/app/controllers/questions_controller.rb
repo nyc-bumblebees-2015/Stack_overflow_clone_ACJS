@@ -13,26 +13,52 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(question_params)
-    question.user_id = 1
+    @question = Question.new(question_params)
+    @question.user_id = 1
     tags = params[:tags].split(',')
-    if question.save
+    if @question.save
       tags.each do |tag|
-        question.tags << Tag.create(name: tag)
+        check_tag = Tag.find_by(name: tag)
+        if check_tag
+          @question.tags << check_tag
+        else
+          @question.tags << Tag.create(name: tag)
+        end
       end
       redirect_to root_path
     else
-      redirect_to "http://www.google.com"
+      render :new
     end
   end
 
   def edit
+    @question = Question.find(params[:id])
   end
 
   def update
+    @question = Question.find(params[:id])
+    current_question_tags = @question.question_tags
+    current_question_tags.destroy_all
+    @question.assign_attributes(question_params)
+    tags = params[:tags].split(',')
+    if @question.save
+      tags.each do |tag|
+        check_tag = Tag.find_by(name: tag)
+        if check_tag
+          @question.tags << check_tag
+        else
+          @question.tags << Tag.create(name: tag)
+        end
+      end
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    Question.find(params[:id]).destroy
+    redirect_to root_path
   end
 
   private
@@ -40,4 +66,7 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:title, :body)
   end
+
+
+
 end

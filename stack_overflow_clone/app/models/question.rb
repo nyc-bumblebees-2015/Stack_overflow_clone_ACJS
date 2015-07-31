@@ -8,4 +8,9 @@ class Question < ActiveRecord::Base
 
 	validates :user_id, :title, :body, presence: true
 	validates :title, uniqueness: true
+
+  def tags_as_string
+    tags.map{ |tag| tag.name }.join(',')
+  end
+
 end
