@@ -1,0 +1,60 @@
+<div id="question-header">
+ <h1> <%= @question.title %> </h1>
+</div>
+
+<div class='question-container'>
+  <div class='count-box'>
+    <p class='count'> vote count </p>
+    <p class='count-title'> votes </p>
+  </div>
+  <div class='question-body'> <%= @question.body %> </div>
+  <% @question.tags.each do |tag| %>
+    <div class='tags'>
+      <%= button_to tag.name, tag_path(tag), method: :get %>
+    </div>
+  <% end %>
+  <div class='user-info'>
+    <span class="user-action-time">time method</span>
+    <span class="username"><%= link_to @question.user.username, user_path(@question.user) %></span>
+  </div>
+  <div class='comment-container'>
+    <% @question.comments.each do |comment| %>
+      <div class="comment-body">
+        <%= comment.body %>
+      </div>
+    <% end %>
+  </div>
+  <div class='comment-link'>
+    <%= link_to 'add a comment', new_comment_path %>
+  </div>
+
+</div>
+<div class='answer-div'>
+  <p class='answer-count'> <%= @question.answers.count %> Answers</p>
+</div>
+
+<div class='answer-container'>
+  <% @question.answers.each do |answer| %>
+  <div class='count-box'>
+    <p class='count'> vote count </p>
+    <p class='count-title'> votes </p>
+  </div>
+  <div class='answer-body'>
+    <%= answer.body %>
+  </div>
+    <div class='user-info'>
+    <span class="user-action-time">time method</span>
+    <span class="username"><%= link_to answer.user.username, user_path(answer.user) %></span>
+  </div>
+  <div class='comment-container'>
+    <% answer.comments.each do |comment| %>
+      <div class="comment-body">
+        <%= comment.body %>
+      </div>
+    <% end %>
+  </div>
+  <div class='comment-link'>
+    <%= link_to 'add a comment', new_comment_path %>
+  </div>
+  <% end %>
+</div>
