@@ -13,6 +13,17 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    question = Question.new(question_params)
+    question.user_id = 1
+    tag = params[:tag]
+    p "**************"
+    p tag
+    p "**************"
+    if question.save
+      redirect_to root_path
+    else
+      redirect_to "http://www.google.com"
+    end
   end
 
   def edit
@@ -24,4 +35,9 @@ class QuestionsController < ApplicationController
   def destroy
   end
 
+  private
+
+  def question_params
+    params.require(:question).permit(:title, :body)
+  end
 end
