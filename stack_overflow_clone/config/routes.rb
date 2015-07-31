@@ -10,7 +10,7 @@ root 'questions#index'
 
  resources :comments, except: [:index, :show, :destroy]
 
- resources :tags, only: [:index]
+ resources :tags, only: [:index, :show]
 
  resources :votes, only: [:create, :new]
 
