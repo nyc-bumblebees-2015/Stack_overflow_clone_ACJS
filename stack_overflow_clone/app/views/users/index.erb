@@ -1,4 +1,14 @@
 <h2>Users</h2>
+<div id="find-user-form">
+  <%= form_tag '/users/show' %>
+  <div>
+    <%= label_tag "Type to find users" %>
+    <%= text_field_tag :username %>
+  </div>
+   <div>
+    <%= submit_tag "find user" %>
+  </div>
+</div>
 <div class="user_index_thumbnail">
  <% @users.each do |user| %>
   <img class="profile-pic" src="http://besthqimages.mobi/wp-content/uploads/default-profile-picture-png-pictures-4.png" alt="user-profile-pic">
@@ -8,3 +18,4 @@
   <div class="email">Email:<a href="mailto:<%= user.email %>"><%= user.email %></a></div>
   <% end %>
 </div>
+
