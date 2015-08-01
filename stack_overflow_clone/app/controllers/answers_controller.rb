@@ -7,7 +7,7 @@ class AnswersController < ApplicationController
     answer = Answer.new(answer_params)
     if answer.save
       question = Question.find_by(id: answer.question_id)
-      redirect_to question_path(question)
+      request.xhr? ? render(partial: 'answer', layout: false, locals: {answer: answer}) : redirect_to(question)
     else
       flash.now[:error] = answer.errors.full_messages
       render :new
