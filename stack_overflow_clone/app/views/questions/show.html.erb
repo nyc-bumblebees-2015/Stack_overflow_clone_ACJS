@@ -18,13 +18,13 @@
     </div>
   <% end %>
   <div class='user-info'>
-    <span class="user-action-time">time method</span>
+    <span class="user-action-time"> Posted: <%= elapsed_time(@question.created_at)  %> ago </span>
     <span class="username"><%= link_to @question.user.username, user_path(@question.user) %></span>
   </div>
   <div class='question-comment-container'>
     <% order_collection(@question.comments).each do |comment| %>
       <div class="comment-body">
-        <%= comment.body %>
+        <%= comment.body %> <span> Commented: <%= elapsed_time(comment.created_at) %> ago </span>
       </div>
     <% end %>
   </div>
@@ -49,7 +49,7 @@
     <div class='answer-comment-container'>
     <% order_collection(answer.comments).each do |comment| %>
       <div class="comment-body">
-        <%= comment.body %>
+        <%= comment.body %> <span> Commented: <%= elapsed_time(comment.created_at) %> ago </span>
       </div>
     <% end %>
     <div class="answer-comment-collector<%=answer.id%>"></div>
