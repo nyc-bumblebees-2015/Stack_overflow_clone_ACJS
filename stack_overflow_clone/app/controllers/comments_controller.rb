@@ -8,11 +8,11 @@ class CommentsController < ApplicationController
     if params[:comment][:commentable_type] == 'Question'
       @commentable = Question.find_by(id: params[:comment][:commentable_id])
       @comment = @commentable.comments.create(comment_params)
-      redirect_to question_path(@commentable)
+      request.xhr? ? render(partial: 'comment', layout: false, locals: {comment: @comment}) : redirect_to(@commentable)
     else
       @commentable = Answer.find_by(id: params[:comment][:commentable_id])
       @comment = @commentable.comments.create(comment_params)
-      redirect_to question_path(@commentable.question)
+      request.xhr? ? render(partial: 'comment', layout: false, locals: {comment: @comment}) : redirect_to(@commentable.question)
     end
 
   end
