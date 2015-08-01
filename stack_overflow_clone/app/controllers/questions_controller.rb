@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @answer = Answer.new
     @comment = Comment.new
+    @vote = Vote.new
   end
 
   def new
@@ -16,7 +17,6 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    @question.user_id = 1
     tags = params[:tags].split(',')
     if @question.save
       tags.each do |tag|
@@ -66,7 +66,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:title, :body)
+    params.require(:question).permit(:title, :body).merge(user_id: session[:user_id])
   end
 
 

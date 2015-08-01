@@ -6,4 +6,5 @@ class Comment < ActiveRecord::Base
 	has_many :votes, as: :voteable
 
 	validates :commentable_id, :commentable_type, :body, :user_id, presence: true
+
 end
