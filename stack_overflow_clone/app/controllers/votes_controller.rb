@@ -7,8 +7,8 @@ class VotesController < ApplicationController
     if params[:vote][:voteable_type] == 'Question'
       @voteable = Question.find_by(id: params[:vote][:voteable_id])
       @vote = @voteable.votes.build(vote_params)
-      if @vote.can_vote? && @vote.save
-        redirect_to question_path(@voteable)
+      if @vote.can_vote? && @vote.save && request.xhr?
+        render json: {data: @voteable.vote_count}.to_json
       else
         flash[:notice] = "You can only vote once per question."
         redirect_to question_path(@voteable)
