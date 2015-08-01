@@ -1,4 +1,4 @@
-<%= form_for vote do |f| %>
+<%= form_for vote,html: {id: 'upvote_form'} do |f| %>
   <%= f.hidden_field :voteable_id, value: voteable_id %>
   <%= f.hidden_field :voteable_type, value: voteable_type %>
   <%= f.hidden_field :value, value: 1 %>

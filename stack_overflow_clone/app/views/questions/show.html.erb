@@ -6,8 +6,8 @@
   <div class='count-box'>
     <div class = "votes"><%= render partial: 'votes/upvote', locals:{ vote: @vote, voteable_id: @question.id, voteable_type: 'Question'}%></div>
     <div class = "votes"><%= render partial: 'votes/downvote', locals:{ vote: @vote, voteable_id: @question.id, voteable_type: 'Question'}%></div>
-    <p class='count'> vote count: <%= @question.vote_count%> </p>
-    <p class='count-title'> votes </p>
+<!--     <p class='count'> vote count: </p> -->
+    <p class='count-title'>  <%= @question.vote_count%> votes </p>
   </div>
   <div class='question-body'> <%= @question.body %> </div>
   <div>
@@ -45,8 +45,8 @@
   <div class='count-box'>
     <div class = "votes"><%= render partial: 'votes/upvote', locals:{ vote: @vote, voteable_id: answer.id, voteable_type: 'Answer'}%></div>
     <div class = "votes"><%= render partial: 'votes/downvote', locals:{ vote: @vote, voteable_id: answer.id, voteable_type: 'Answer'}%></div>
-    <p class='count'> vote count: <%= answer.vote_count%> </p>
-    <p class='count-title'> votes </p>
+<!--     <p class='count'> vote count</p> -->
+    <p class='count-title'> <%= answer.vote_count%> votes </p>
   </div>
   <div class='answer-body'>
     <%= answer.body %>
