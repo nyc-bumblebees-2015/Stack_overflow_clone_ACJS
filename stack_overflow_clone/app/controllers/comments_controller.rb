@@ -8,11 +8,11 @@ class CommentsController < ApplicationController
     if params[:comment][:commentable_type] == 'Question'
       @commentable = Question.find_by(id: params[:comment][:commentable_id])
       @comment = @commentable.comments.create(comment_params)
-      redirect_to question_path(@commentable)
+      render json: {comment: @comment.body}.to_json
     else
       @commentable = Answer.find_by(id: params[:comment][:commentable_id])
       @comment = @commentable.comments.create(comment_params)
-      redirect_to question_path(@commentable.question)
+      render json: {comment: @comment.body, answer_id: @commentable.id}.to_json
     end
 
   end

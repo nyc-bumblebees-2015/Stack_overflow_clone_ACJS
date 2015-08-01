@@ -21,17 +21,18 @@
     <span class="user-action-time">time method</span>
     <span class="username"><%= link_to @question.user.username, user_path(@question.user) %></span>
   </div>
-  <div class='comment-container'>
-    <% @question.comments.each do |comment| %>
+  <div class='question-comment-container'>
+    <% order_collection(@question.comments).each do |comment| %>
       <div class="comment-body">
         <%= comment.body %>
       </div>
     <% end %>
   </div>
-  <div class='comment-link'>
+  <div class="question-comment-collector"></div>
+  <div class='question-comment-link'>
     <%= link_to 'add a comment', new_comment_path %>
   </div>
-  <div class ="comment-form"><%= render partial: 'comments/new', locals:{ comment: @comment, commentable_id: @question.id, commentable_type: 'Question'} %></div>
+  <div class ="question-comment-form"><%= render partial: 'comments/new', locals:{ comment: @comment, commentable_id: @question.id, commentable_type: 'Question'} %></div>
 
 </div>
 <div class='answer-div'>
@@ -44,24 +45,19 @@
     <p class='count'> vote count </p>
     <p class='count-title'> votes </p>
   </div>
-  <div class='answer-body'>
-    <%= answer.body %>
-  </div>
-    <div class='user-info'>
-    <span class="user-action-time">time method</span>
-    <span class="username"><%= link_to answer.user.username, user_path(answer.user) %></span>
-  </div>
-  <div class='comment-container'>
-    <% answer.comments.each do |comment| %>
+    <%= render partial: 'answers/answer', layout: false, locals: {answer: answer} %>
+    <div class='answer-comment-container'>
+    <% order_collection(answer.comments).each do |comment| %>
       <div class="comment-body">
         <%= comment.body %>
       </div>
     <% end %>
-  </div>
-  <div class='comment-link'>
-    <%= link_to 'add a comment', new_comment_path %>
-  </div>
-  <div class ="comment-form"><%= render partial: 'comments/new', locals:{comment: @comment, commentable_id: answer.id, commentable_type: 'Answer'} %></div>
+    <div class="answer-comment-collector<%=answer.id%>"></div>
+    <div class='answer-comment-link'>
+      <%= link_to 'add a comment', new_comment_path %>
+    </div>
+    <div class ="answer-comment-form"><%= render partial: 'comments/new', locals:{comment: @comment, commentable_id: answer.id, commentable_type: 'Answer'} %></div>
+    </div>
   <% end %>
 </div>
 <div class ="answer-form"><%= render partial: 'answers/new', locals: { answer: @answer, question: @question } %></div>
