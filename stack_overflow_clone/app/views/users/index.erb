@@ -1,2 +1,9 @@
 <h2>Users</h2>
-<% @users.each do |user| %>
+<div class="user_index_thumbnail">
+ <% @users.each do |user| %>
+  <div class="username">Username: <%= user.username %></div>
+  <div class="first-name">First Name:<%= user.first_name %></div>
+  <div class="last-name">Last Name:<%= user.last_name %></div>
+  <div class="email">Email:<a href="mailto:<%= user.email %>"><%= user.email %></a></div>
+  <% end %>
+</div>
