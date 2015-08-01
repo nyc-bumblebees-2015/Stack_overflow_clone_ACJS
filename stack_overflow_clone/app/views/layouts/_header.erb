@@ -1,10 +1,20 @@
-<%= link_to "Home", root_path %>
+<header>
+<h1> <%= link_to "Stack Underflow", root_path %> </h1>
 <% if current_user %>
+  <div class='session-control'>
   <%= current_user.username%>
   <%= link_to "Profile", user_path(session[:user_id]) %>
   <%= link_to "Logout", logout_path %>
+  <%= button_to 'New Question', new_question_path, method: :get %>
+  <%= link_to 'check out our users', users_path %>
+  </div>
 <% else %>
+  <div class='session-control'>
   <%= link_to "Sign up", signup_path %>
   <%= link_to "Login", login_path %>
+  <%= button_to 'New Question', new_question_path, method: :get %>
+  <%= link_to 'check out our users', users_path %>
+  </div>
 <% end %>
-<%= flash[:notice]%>
+<div class='flash'> <%= flash[:notice]%> </div>
+</header>
