@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find_by(username: params[:username])
-    render :show
+    redirect_to user_path(@user.id)
   end
 
   private
