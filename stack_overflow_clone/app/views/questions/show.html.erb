@@ -44,20 +44,7 @@
     <p class='count'> vote count </p>
     <p class='count-title'> votes </p>
   </div>
-  <div class='answer-body'>
-    <%= answer.body %>
-  </div>
-    <div class='user-info'>
-    <span class="user-action-time">time method</span>
-    <span class="username"><%= link_to answer.user.username, user_path(answer.user) %></span>
-  </div>
-  <div class='answer-comment-container'>
-    <% order_collection(answer.comments).each do |comment| %>
-      <div class="comment-body">
-        <%= comment.body %>
-      </div>
-    <% end %>
-  </div>
+  <%= render partial: 'answers/answer', layout: false, locals: {answer: answer} %>
   <div class='answer-comment-link'>
     <%= link_to 'add a comment', new_comment_path %>
   </div>
