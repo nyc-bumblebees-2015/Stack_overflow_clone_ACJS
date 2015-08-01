@@ -24,7 +24,6 @@ $(document).ready(function(){
 
   $(".answer-comment-link").on('click', function(event){
     event.preventDefault();
-    $(".answer-comment-form").show()
   })
 
   $(".answer-comment-form").on('submit', function(event){
