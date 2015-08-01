@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- .question {
+/* .question {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
  }
@@ -36,4 +36,4 @@
 .question-body {
   float: right;
   width: 80%;
-}
+}*/
