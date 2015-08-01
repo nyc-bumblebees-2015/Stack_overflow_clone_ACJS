@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @users = User.all
   end
 
   def new
@@ -20,6 +21,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+  end
+
+  def find_user
+    @user = User.find_by(username: params[:username])
+    redirect_to user_path(@user.id)
   end
 
   private
