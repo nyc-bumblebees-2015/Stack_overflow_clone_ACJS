@@ -28,7 +28,7 @@
       </div>
     <% end %>
   </div>
-  <div class='comment-link'>
+  <div class='question-comment-link'>
     <%= link_to 'add a comment', new_comment_path %>
   </div>
   <div class ="question-comment-form"><%= render partial: 'comments/new', locals:{ comment: @comment, commentable_id: @question.id, commentable_type: 'Question'} %></div>
@@ -58,7 +58,7 @@
       </div>
     <% end %>
   </div>
-  <div class='comment-link'>
+  <div class='answer-comment-link'>
     <%= link_to 'add a comment', new_comment_path %>
   </div>
   <div class ="answer-comment-form"><%= render partial: 'comments/new', locals:{comment: @comment, commentable_id: answer.id, commentable_type: 'Answer'} %></div>
