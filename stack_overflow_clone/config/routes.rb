@@ -19,6 +19,7 @@ root 'questions#index'
  post '/login' => 'sessions#create'
  get '/signup' => 'users#new'
  get '/logout' => 'sessions#destroy'
+ post '/find_user' => 'users#find_user'
 
 
 end
