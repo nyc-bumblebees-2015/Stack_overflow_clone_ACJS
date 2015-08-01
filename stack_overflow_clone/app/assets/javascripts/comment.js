@@ -14,7 +14,7 @@ $(document).ready(function(){
       data: $(event.target).serialize(),
       dataType: 'json'
     }).done(function(response){
-        $(".question-comment-container").prepend(response.comment)
+        $(".question-comment-collector").append(response.comment +"<br>")
         $(".new_comment").trigger('reset')
         $(".question-comment-form").hide()
     }).fail(function(error){
@@ -34,7 +34,7 @@ $(document).ready(function(){
       data: $(event.target).serialize(),
       dataType: 'json'
     }).done(function(response){
-      $(".answer-comment-container" + response.answer_id).prepend(response.comment)
+      $(".answer-comment-collector" + response.answer_id).append(response.comment+"<br>")
       $(".new_comment").trigger('reset')
     }).fail(function(error){
       console.log(error, "bad panda")

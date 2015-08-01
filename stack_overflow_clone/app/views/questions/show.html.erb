@@ -28,6 +28,7 @@
       </div>
     <% end %>
   </div>
+  <div class="question-comment-collector"></div>
   <div class='question-comment-link'>
     <%= link_to 'add a comment', new_comment_path %>
   </div>
@@ -45,12 +46,13 @@
     <p class='count-title'> votes </p>
   </div>
     <%= render partial: 'answers/answer', layout: false, locals: {answer: answer} %>
-    <div class='answer-comment-container<%=answer.id%>'>
+    <div class='answer-comment-container'>
     <% order_collection(answer.comments).each do |comment| %>
       <div class="comment-body">
         <%= comment.body %>
       </div>
     <% end %>
+    <div class="answer-comment-collector<%=answer.id%>"></div>
     <div class='answer-comment-link'>
       <%= link_to 'add a comment', new_comment_path %>
     </div>
