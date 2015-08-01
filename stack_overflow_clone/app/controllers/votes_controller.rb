@@ -6,12 +6,23 @@ class VotesController < ApplicationController
   def create
     if params[:vote][:voteable_type] == 'Question'
       @voteable = Question.find_by(id: params[:vote][:voteable_id])
-      @vote = @voteable.votes.create(vote_params)
-      redirect_to question_path(@voteable)
+      @vote = @voteable.votes.build(vote_params)
+      if @vote.can_vote? && @vote.save
+        redirect_to question_path(@voteable)
+      else
+        flash[:notice] = "You can only vote once per question."
+        redirect_to question_path(@voteable)
+      end
+      # redirect_to question_path(@voteable)
     elsif params[:vote][:voteable_type] == 'Answer'
       @voteable = Answer.find_by(id: params[:vote][:voteable_id])
-      @vote = @voteable.votes.create(vote_params)
-      redirect_to question_path(@voteable.question)
+      @vote = @voteable.votes.build(vote_params)
+      if @vote.can_vote? && @vote.save
+        redirect_to question_path(@voteable.question)
+      else
+        flash[:notice] = "You can only vote once per answer."
+        redirect_to question_path(@voteable.question)
+      end
     # else
     #   @voteable = Comment.find_by(id: params[:vote][:voteable_id])
     #   @vote = @voteable.votes.create(vote_params)
@@ -25,7 +36,7 @@ class VotesController < ApplicationController
   end
 
   private
-  def comment_params
-    params.require(:comment).permit(:value, :voteable_type, :voteable_id).merge(user_id: session[:user_id])
+  def vote_params
+    params.require(:vote).permit(:value, :voteable_type, :voteable_id).merge(user_id: session[:user_id])
   end
 end
