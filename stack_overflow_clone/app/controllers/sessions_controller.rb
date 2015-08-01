@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: user_params[:username])
-    if @user && @user.authenticate(user_params[:password])
+    @user = User.find_by(username: params[:session][:username])
+    if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       redirect_to :root
     else
@@ -15,13 +15,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session.clear
     redirect_to :root, notice: "You have successfully logged out."
   end
 
-  private
-  def user_params
-    params.require(:user).permit(:username, :password)
-  end
 
 end

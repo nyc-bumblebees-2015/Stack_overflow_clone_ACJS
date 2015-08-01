@@ -5,8 +5,8 @@ class AnswersController < ApplicationController
 
   def create
     answer = Answer.new(answer_params)
-    question = Question.find_by(id: answer.question_id)
     if answer.save
+      question = Question.find_by(id: answer.question_id)
       redirect_to question_path(question)
     else
       flash.now[:error] = answer.errors.full_messages
@@ -27,6 +27,6 @@ class AnswersController < ApplicationController
 
   private
   def answer_params
-    params.require(:answer).permit(:body).merge(user_id: session[:user_id])
+    params.require(:answer).permit(:body, :question_id).merge(user_id: session[:user_id])
   end
 end
