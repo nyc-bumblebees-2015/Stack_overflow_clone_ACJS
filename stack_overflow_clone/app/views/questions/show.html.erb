@@ -6,7 +6,7 @@
   <div class='count-box'>
     <div class = "votes" id = "question_upvote"><%= render partial: 'votes/upvote', locals:{ vote: @vote, voteable_id: @question.id, voteable_type: 'Question'}%></div>
     <div class = "votes" id = "question_downvote"><%= render partial: 'votes/downvote', locals:{ vote: @vote, voteable_id: @question.id, voteable_type: 'Question'}%></div>
-    <p class='count' id='question_vote_count'> vote count: <%= @question.vote_count%> </p>
+    <p class='count' id='question_vote_count'> <%= @question.vote_count%> </p>
     <p class='count-title'> votes </p>
   </div>
   <div class='question-body'> <%= @question.body %> </div>
