@@ -1,16 +1,17 @@
-<h1>Questions</h1>
+<h2>Questions</h2>
 <% @questions.each do |question| %>
   <div class='question'>
     <div class='question-stats'>
       <div class='count-box'>
-        <p class='count'>vote count</p>
+        <p class='count'> <%= question.votes.count %> </p>
         <p class='count-title'>votes</p>
       </div>
       <div class='count-box'>
         <p class='count'> <%= question.answers.count %> </p>
         <p class='count-title'>answers</p>
       </div>
-    <div>
+    </div>
+    <div class='question-info'>
       <h3>
         <%= link_to question.title, question_path(question) %>
       </h3>
@@ -20,11 +21,11 @@
       </div>
       <% end %>
     </div>
-    <div class='question-footer'>
+    <div class='question-action'>
       <p class='elapsed'> Posted: <%= elapsed_time(question.created_at) %> ago </p>
       <p class='question-author'> <%= link_to question.user.username, user_path(question.user.id) %> </p>
     </div>
     </div>
   </div>
 <% end %>
-<div class='quesiont-footer'>Looking for more? Go to the real <a href="https://www.stackoverflow.com">Stack Overflow</a></div>
+<div class='question-footer'>Looking for more? Go to the real <a href="https://www.stackoverflow.com">Stack Overflow</a></div>
