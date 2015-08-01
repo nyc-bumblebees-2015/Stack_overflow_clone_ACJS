@@ -1,6 +1,5 @@
 $(document).ready(function(){
   $(".question-comment-form").hide()
-  $(".answer-comment-form").hide()
 
   $(".question-comment-link").on('click', function(event){
     event.preventDefault();
@@ -12,7 +11,8 @@ $(document).ready(function(){
     $.ajax({
       url: event.target.action,
       method: event.target.method,
-      data: $(event.target).serialize()
+      data: $(event.target).serialize(),
+      dataType: 'json'
     }).done(function(response){
         $(".question-comment-container").prepend(response.comment)
         $(".new_comment").trigger('reset')
@@ -31,11 +31,11 @@ $(document).ready(function(){
     $.ajax({
       url: event.target.action,
       method: event.target.method,
-      data: $(event.target).serialize()
+      data: $(event.target).serialize(),
+      dataType: 'json'
     }).done(function(response){
       $(".answer-comment-container" + response.answer_id).prepend(response.comment)
       $(".new_comment").trigger('reset')
-      $(".answer-comment-form").hide()
     }).fail(function(error){
       console.log(error, "bad panda")
     })
