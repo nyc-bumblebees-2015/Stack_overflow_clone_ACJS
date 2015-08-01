@@ -22,7 +22,7 @@
     </div>
     <div class='question-footer'>
       <p class='elapsed'> answered time ago </p>
-      <p class='question-author'> <%= question.user.username %> </p>
+      <p class='question-author'><%= link_to question.user.username, user_path(question.user.id) %> </p>
     </div>
     </div>
   </div>
