@@ -14,7 +14,7 @@ $(document).ready(function(){
       method: event.target.method,
       data: $(event.target).serialize()
     }).done(function(response){
-        $(".question-comment-container").append(response)
+        $(".question-comment-container").prepend(response.comment)
         $(".new_comment").trigger('reset')
         $(".question-comment-form").hide()
     }).fail(function(error){
@@ -34,7 +34,7 @@ $(document).ready(function(){
       method: event.target.method,
       data: $(event.target).serialize()
     }).done(function(response){
-      $(".answer-comment-container").append(response)
+      $(".answer-comment-container" + response.answer_id).prepend(response.comment)
       $(".new_comment").trigger('reset')
       $(".answer-comment-form").hide()
     }).fail(function(error){
