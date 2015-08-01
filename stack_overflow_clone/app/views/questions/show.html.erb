@@ -22,7 +22,7 @@
     <span class="username"><%= link_to @question.user.username, user_path(@question.user) %></span>
   </div>
   <div class='question-comment-container'>
-    <% @question.comments.each do |comment| %>
+    <% order_collection(@question.comments).each do |comment| %>
       <div class="comment-body">
         <%= comment.body %>
       </div>
@@ -52,7 +52,7 @@
     <span class="username"><%= link_to answer.user.username, user_path(answer.user) %></span>
   </div>
   <div class='answer-comment-container'>
-    <% answer.comments.each do |comment| %>
+    <% order_collection(answer.comments).each do |comment| %>
       <div class="comment-body">
         <%= comment.body %>
       </div>
