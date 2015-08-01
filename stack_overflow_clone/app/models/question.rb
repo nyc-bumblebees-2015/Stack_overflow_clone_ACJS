@@ -13,4 +13,10 @@ class Question < ActiveRecord::Base
     tags.map{ |tag| tag.name }.join(',')
   end
 
+  def vote_count
+    upvote_count = self.votes.where(value: 1).count
+    downvote_count = self.votes.where(value: -1).count
+    upvote_count - downvote_count
+  end
+
 end
