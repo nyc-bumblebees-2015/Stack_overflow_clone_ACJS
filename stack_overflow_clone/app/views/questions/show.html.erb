@@ -3,13 +3,13 @@
 </div>
 
 <div class='question-container'>
-  <div class='count-box'>
+  <div class='vote-box'>
     <div class = "votes" id = "question_upvote"><%= render partial: 'votes/upvote', locals:{ vote: @vote, voteable_id: @question.id, voteable_type: 'Question'}%></div>
     <div class = "votes" id = "question_downvote"><%= render partial: 'votes/downvote', locals:{ vote: @vote, voteable_id: @question.id, voteable_type: 'Question'}%></div>
     <p class='count' id='question_vote_count'> <%= @question.vote_count%> </p>
     <p class='count-title'> votes </p>
   </div>
-  <div class='question-body'> <%= @question.body %> </div>
+  <div class='question-body'> <%= @question.body %>
   <div>
     <%= button_to 'Edit', edit_question_path(@question), method: :get %>
     <%= button_to 'Delete Question', question_path(@question), method: :delete %>
@@ -19,6 +19,7 @@
       <%= button_to tag.name, tag_path(tag), method: :get %>
     </div>
   <% end %>
+</div>
   <div class='user-info'>
     <span class="user-action-time"> Posted: <%= elapsed_time(@question.created_at)  %> ago </span>
     <span class="username"><%= link_to @question.user.username, user_path(@question.user) %></span>
@@ -26,7 +27,7 @@
   <div class='question-comment-container'>
     <% order_collection(@question.comments).each do |comment| %>
       <div class="comment-body">
-        <%= comment.body %> <span> Commented: <%= elapsed_time(comment.created_at) %> ago </span>
+        <%= comment.body %> <span class="small"> Commented: <%= elapsed_time(comment.created_at) %> ago </span>
       </div>
     <% end %>
   </div>

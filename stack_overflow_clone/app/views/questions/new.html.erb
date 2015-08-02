@@ -1,14 +1,14 @@
 <div class='question-form'>
   <%= form_for @question do |f| %>
-  <div>
+  <div class="form_field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div>
+  <div class="form_field">
     <%= f.label :body %>
     <%= f.text_area :body, rows: 10, cols: 80 %>
   </div>
-  <div>
+  <div class="form_field">
     <%= label_tag :tags %>
     <%= text_field_tag :tags %>
   </div>
