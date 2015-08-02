@@ -8,8 +8,8 @@ FactoryGirl.define do
   end
 
   factory :question do
-    title Faker::Lorem.sentence
-    body Faker::Lorem.paragraph
+    title 'What is this?'
+    body 'don doodie'
     user_id 1
   end
 end
