@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+#rake db:test:prepare, to set up test database
 describe QuestionsController do
   let (:sample_question) { FactoryGirl.create(:question) }
   before(:each) do
@@ -13,12 +14,13 @@ describe QuestionsController do
 
   it "#new" do
     get :new
-    expect(assigns(:question)).to be_a_new(Question)
+    expect(response).to render_template("new")
   end
 
   context "#create" do
     it "creates a question with valid params" do
-      question :create, {question: {title: "yo", body: "hello", user_id: 1}}
+      valid_question = FactoryGirl.build(:question)
+      post :create, {question: {title: valid_question.title, body: valid_question.body, user_id: valid_question.user_id}, tags: "blah blah blah"}
       expect(response).to redirect_to :root
     end
 
