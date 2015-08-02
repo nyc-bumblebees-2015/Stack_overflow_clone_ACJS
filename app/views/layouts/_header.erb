@@ -5,7 +5,7 @@
   <%= current_user.username%>
   <%= link_to "Profile", user_path(session[:user_id]), id: "profile" %>
   <%= link_to "Logout", logout_path, id: "logout" %>
-  <div class="nav_stuff"><%= button_to 'New Question', new_question_path, method: :get %></div>
+  <div class="nav_stuff"><%= button_to 'New Question', new_question_path, method: :get, class: 'new-question-btn' %></div>
   <div class="nav_stuff"><%= link_to 'All users', users_path, html: {id: "all_users"} %><div>
 </div>
 
