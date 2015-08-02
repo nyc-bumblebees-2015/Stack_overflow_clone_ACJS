@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :require_login, only: [:create]
 
   def new
     @comment = Comment.new
