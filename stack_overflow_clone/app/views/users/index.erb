@@ -12,11 +12,13 @@
 </div>
 <div class="user_index_thumbnail">
  <% @users.each do |user| %>
+ <div class="user_box">
   <img class="profile-pic" src="http://besthqimages.mobi/wp-content/uploads/default-profile-picture-png-pictures-4.png" alt="user-profile-pic">
   <div class="username">Username: <%= link_to (user.username), user_path(user.id) %></div>
   <div class="first-name">First Name:<%= user.first_name %></div>
   <div class="last-name">Last Name:<%= user.last_name %></div>
   <div class="email">Email:<a href="mailto:<%= user.email %>"><%= user.email %></a></div>
+</div>
   <% end %>
 </div>
 
