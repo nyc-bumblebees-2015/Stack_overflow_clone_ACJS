@@ -70,8 +70,8 @@ h1 a:visited {
 
 .answer-body {
   display: inline-block;
-  float: right;
-  /*width: 69%;*/
+
+  width: 80%;
   text-align: left;
 }
 
@@ -88,7 +88,7 @@ h1 a:visited {
 .question-body {
   float: right;
   margin: 0 auto;
-  width: 50%;
+  width: 95%;
 }
 
 .vote-box {
@@ -157,6 +157,15 @@ a {
 .question-footer {
   padding: 25px 0;
 }
+
+#question_vote_count {
+  margin: 0;
+}
+
+.count-title {
+  margin: 0;
+}
+
 input {
   min-width: 200px;
 }
