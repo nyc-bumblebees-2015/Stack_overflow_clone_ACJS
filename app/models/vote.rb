@@ -8,4 +8,8 @@ class Vote < ActiveRecord::Base
     return vote.empty?
   end
 
+  def self.vote_count_for voteable
+    Vote.where(voteable_id: voteable.id).where(voteable_type:voteable.class.name).sum(:value)
+  end
+
 end
