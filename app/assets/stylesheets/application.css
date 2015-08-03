@@ -53,17 +53,42 @@ h1 a:visited {
   height: 200px;
 }
 
+.answer-div {
+  border-top: 3px solid #E0E0E0;
+  border-bottom: 3px solid #E0E0E0;
+  margin: 17px 0;
+}
+
 .count-box {
-  display: inline-block;
-  width: 45px;
-  height: 30px;
+  float: left;
+  /*width: 30%;
+  height: 95px;*/
   font-size: 0.9em;
   color: gray;
+  text-align: center;
+}
+
+.answer-body {
+  display: inline-block;
+
+  width: 80%;
+  text-align: left;
+}
+
+.user-info {
+  clear: both;
+  margin: 30px 0;
+  padding-top: 20px;
+}
+
+.answer-comment-container {
+  clear: both;
 }
 
 .question-body {
+  float: right;
   margin: 0 auto;
-  width: 50%;
+  width: 95%;
 }
 
 .vote-box {
@@ -74,8 +99,14 @@ h1 a:visited {
   font-size: 0.8em;
 }
 
+.question-action {
+  margin: 0;
+}
+
 .question-comment-container {
-  margin: 0 auto;
+  border-top: 1px solid #E0E0E0;
+  clear: both;
+  margin: 0
   width: 50%;
   padding: 15px;
 }
@@ -85,8 +116,34 @@ a {
   text-decoration: none;
 }
 
+.comment-body {
+  margin-top: 5px;
+}
+.question-comment-collecor {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.question-comment-link {
+  padding-left: 50px;
+}
+
 .question-info {
   font-weight: 400;
+}
+
+.answer-container {
+  margin-bottom: 35px;
+}
+
+.answer-comment-form {
+  padding: 20px 0;
+}
+
+.answer-form {
+  border-top: 3px solid #E0E0E0;
+  padding-top: 20px;
+  margin: 10px 0;
 }
 
 .nav_stuff {
@@ -97,6 +154,17 @@ a {
   padding: 10px;
 }
 
+.question-footer {
+  padding: 25px 0;
+}
+
+#question_vote_count {
+  margin: 0;
+}
+
+.count-title {
+  margin: 0;
+}
 
 input {
   min-width: 200px;
@@ -138,5 +206,10 @@ input[type="password"] {
 input[type="password"]:focus,
 input[type="password"].focus {
   border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
+}
+
+.new-question-btn {
+  margin: 10px 0;
   box-shadow: 0 0 5px 1px #969696;
 }

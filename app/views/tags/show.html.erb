@@ -1,29 +1,30 @@
-<h2> Questions for <%= @tag.name %> </h2>
+<h2> Questions tagged <%= @tag.name %> </h2>
 <% @questions.each do |question| %>
   <div class='question'>
     <div class='question-stats'>
       <div class='count-box'>
-        <p class='count'>vote count</p>
+        <p class='count'> <%= question.vote_count %></p>
         <p class='count-title'>votes</p>
       </div>
       <div class='count-box'>
         <p class='count'> <%= question.answers.count %> </p>
         <p class='count-title'>answers</p>
       </div>
-    <div>
-      <h3>
-        <%= link_to question.title, question_path(question) %>
-      </h3>
-      <% question.tags.each do |tag| %>
-      <div class='tags'>
-        <%= button_to tag.name, tag_path(tag), method: :get %>
       </div>
-      <% end %>
+      <div class="question-preview">
+        <h3>
+          <%= link_to question.title, question_path(question) %>
+        </h3>
+        <% question.tags.each do |tag| %>
+        <div class='tags'>
+          <%= button_to tag.name, tag_path(tag), method: :get %>
+        </div>
+        <% end %>
+    <div class="clearfix"></div>
     </div>
-    <div class='question-footer'>
-      <p class='elapsed'> answered time ago </p>
-      <p class='question-author'> <%= question.user.username %> </p>
-    </div>
+    <div class='question-preview-footer'>
+      <p class='elapsed'> answered <%= elapsed_time(question.created_at) %> ago </p>
+      <p class='question-author'> answered by <%= link_to question.user.username, user_path(question.user) %> </p>
     </div>
   </div>
 <% end %>
