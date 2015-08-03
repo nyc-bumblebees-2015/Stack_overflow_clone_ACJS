@@ -1,0 +1,7 @@
+<%= question.body%>
+
+  <%= render partial 'comments/new', locals:{commentable_id: @question.id, commentable_type: 'Question'} %>
+
+<% @question.answers.each do |answer|%>
+  <%= render partial 'comments/new', locals:{commentable_id: answer.id, commentable_type: 'Answer'} %>
+<% end %>

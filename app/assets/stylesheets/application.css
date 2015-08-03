@@ -1,0 +1,215 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+html {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+body {
+  width: 100%;
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+#body-content {
+  border-top: 10px solid #989898;
+}
+
+h1 {
+  float: left;
+}
+
+h1 a {
+  text-decoration: none;
+}
+
+h1 a:visited {
+  color: #f90;
+}
+
+.session-control {
+  float: right;
+}
+
+#body-content {
+  clear: both;
+}
+
+.user_box {
+  display: inline-block;
+  width: 300px;
+  height: 200px;
+}
+
+.answer-div {
+  border-top: 3px solid #E0E0E0;
+  border-bottom: 3px solid #E0E0E0;
+  margin: 17px 0;
+}
+
+.count-box {
+  float: left;
+  /*width: 30%;
+  height: 95px;*/
+  font-size: 0.9em;
+  color: gray;
+  text-align: center;
+}
+
+.answer-body {
+  display: inline-block;
+
+  width: 80%;
+  text-align: left;
+}
+
+.user-info {
+  clear: both;
+  margin: 30px 0;
+  padding-top: 20px;
+}
+
+.answer-comment-container {
+  clear: both;
+}
+
+.question-body {
+  float: right;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.vote-box {
+  float: left;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+.question-action {
+  margin: 0;
+}
+
+.question-comment-container {
+  border-top: 1px solid #E0E0E0;
+  clear: both;
+  margin: 0;
+  width: 50%;
+  padding: 15px;
+}
+
+a {
+  color: #07c;
+  text-decoration: none;
+}
+
+.comment-body {
+  margin-top: 5px;
+}
+.question-comment-collecor {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.question-comment-link {
+  padding-left: 50px;
+}
+
+.question-info {
+  font-weight: 400;
+}
+
+.answer-container {
+  margin-bottom: 35px;
+}
+
+.answer-comment-form {
+  padding: 20px 0;
+}
+
+.answer-form {
+  border-top: 3px solid #E0E0E0;
+  padding-top: 20px;
+  margin: 10px 0;
+}
+
+.nav_stuff {
+  display: block;
+}
+
+.form_field {
+  padding: 10px;
+}
+
+.question-footer {
+  padding: 25px 0;
+}
+
+#question_vote_count {
+  margin: 0;
+}
+
+.count-title {
+  margin: 0;
+}
+
+input {
+  min-width: 200px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+input[type="text"]:focus,
+input[type="text"].focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
+}
+
+input[type="textarea"] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+input[type="textarea"]:focus,
+input[type="textarea"].focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
+}
+
+input[type="password"] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  transition: box-shadow 0.3s, border 0.3s;
+}
+input[type="password"]:focus,
+input[type="password"].focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
+}
+
+.new-question-btn {
+  margin: 10px 0;
+  box-shadow: 0 0 5px 1px #969696;
+}

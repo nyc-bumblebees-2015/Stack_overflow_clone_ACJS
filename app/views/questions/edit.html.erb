@@ -1,0 +1,20 @@
+<div class='question-form'>
+  <%= form_for @question do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+  </div>
+  <div>
+    <%= label_tag :tags %>
+    <%= text_field_tag :tags, @question.tags_as_string %>
+  </div>
+   <div>
+    <%= f.submit 'Submit' %>
+  </div>
+  <% end %>
+</div>
+

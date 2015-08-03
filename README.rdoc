@@ -1,0 +1,18 @@
+#Team Members:
+
+Alina Jahnes
+Christine Schatz
+Jonathan Chung
+Sihong Huang
+
+#User Stories:
+As a user I can ask a question
+As a user I can answer a question
+As a user I can comment on a question or answer
+As a user I can tag a question
+As a user I can sign up and log in
+As a user I can see the home page with a list of questions
+As a user I have a profile page
+As a user I can vote on questions, answers, comments
+As a user I can see when I and other users last updated/created questions, answers, comments
+As a guest user I have access to everything except asking a question, answering a question, and commenting

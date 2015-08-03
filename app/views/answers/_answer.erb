@@ -1,0 +1,7 @@
+<div class='answer-body'>
+    <%= answer.body %>
+  </div>
+    <div class='user-info'>
+    <span class="user-action-time"> Answered: <%= elapsed_time(answer.created_at) %> ago, by: </span>
+    <span class="username"><%= link_to answer.user.username, user_path(answer.user) %></span>
+  </div>

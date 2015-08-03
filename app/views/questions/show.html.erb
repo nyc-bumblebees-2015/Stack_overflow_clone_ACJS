@@ -1,0 +1,70 @@
+<div id="question-header">
+ <h2> <%= @question.title %> </h2>
+</div>
+
+<div class='question-container'>
+  <div class='vote-box'>
+    <div class = "votes" id = "question_upvote"> <%= render partial: 'votes/upvote', locals:{ vote: @vote, voteable_id: @question.id, voteable_type: 'Question'}%> </div>
+    <div class = "votes" id = "question_downvote"> <%= render partial: 'votes/downvote', locals:{ vote: @vote, voteable_id: @question.id, voteable_type: 'Question'}%></div>
+    <p class='count' id='question_vote_count'> <%= @question.vote_count%> </p>
+    <p class='count-title'> votes </p>
+  </div>
+  <div class='question-body'> <%= @question.body %>
+  <div class='question-action'>
+    <%= button_to 'Edit', edit_question_path(@question), method: :get %>
+    <%= button_to 'Delete Question', question_path(@question), method: :delete %>
+  </div>
+    <% @question.tags.each do |tag| %>
+  <div class='tags'>
+    <%= button_to tag.name, tag_path(tag), method: :get %>
+  </div>
+    <% end %>
+  <div class='user-info'>
+    <span class="user-action-time"> Posted: <%= elapsed_time(@question.created_at)  %> ago </span>
+    <span class="username"><%= link_to @question.user.username, user_path(@question.user) %></span>
+  </div>
+</div>
+  <div class='question-comment-container'>
+    <% order_collection(@question.comments).each do |comment| %>
+      <div class="comment-body">
+        <%= comment.body %> <span class="small"> Commented: <%= elapsed_time(comment.created_at) %> ago </span>
+      </div>
+    <% end %>
+  </div>
+  <div class="question-comment-collector"></div>
+  <div class='question-comment-link'>
+    <%= link_to 'add a comment', new_comment_path %>
+  </div>
+  <div class ="question-comment-form"><%= render partial: 'comments/new', locals:{ comment: @comment, commentable_id: @question.id, commentable_type: 'Question'} %></div>
+
+</div>
+<div class='answer-div'>
+  <p class='answer-count'> <%= @question.answers.count %> Answers</p>
+</div>
+
+<div class='answer-container'>
+  <% @question.answers.each do |answer| %>
+  <div class='count-box'>
+    <div class = "votes" id = "answer_upvote"><%= render partial: 'votes/upvote', locals:{ vote: @vote, voteable_id: answer.id, voteable_type: 'Answer'}%></div>
+    <div class = "votes" id = "answer_downvote"><%= render partial: 'votes/downvote', locals:{ vote: @vote, voteable_id: answer.id, voteable_type: 'Answer'}%></div>
+    <p class='count' id='answer_vote_count<%= answer.id%>'> vote count: <%= answer.vote_count%> </p>
+    <p class='count-title'> votes </p>
+  </div>
+    <%= render partial: 'answers/answer', layout: false, locals: {answer: answer} %>
+    <div class='answer-comment-container'>
+    <% order_collection(answer.comments).each do |comment| %>
+      <div class="comment-body">
+        <%= comment.body %> <span> Commented: <%= elapsed_time(comment.created_at) %> ago </span>
+      </div>
+    <% end %>
+    <div class="answer-comment-collector<%=answer.id%>"></div>
+    <div class='answer-comment-link'>
+      <%= link_to 'add a comment', new_comment_path %>
+    </div>
+    <div class ="answer-comment-form"><%= render partial: 'comments/new', locals:{comment: @comment, commentable_id: answer.id, commentable_type: 'Answer'} %></div>
+    </div>
+  <% end %>
+</div>
+<div class ="answer-form"><%= render partial: 'answers/new', locals: { answer: @answer, question: @question } %></div>
+<div class='question-footer'>Looking for more? Go to the real <a href="https://www.stackoverflow.com">Stack Overflow</a></div>
+
